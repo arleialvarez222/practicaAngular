@@ -1,0 +1,16 @@
+<div class="card-columns m-5 animated fadeIn">
+
+    <!-- *ngFor="let cancion of nuevasCanciones" nos crea la cantidad de tarjetas que tiene el arreglo
+     [src]="cancion.images[0].url " : las llaves nos indican que es un arreglo que va a manejar angular y  nos inserta lainformacion denyro de cada tarjeta-->
+    <div (click)="verArtista( item )" *ngFor="let item of items" class="card  puntero ">
+        <img class="card-img-top" [src]="item.images | noimage " alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title"> {{ item.name }} </h5>
+            <!-- se imprime el nombre del artista de la cancion -->
+            <p class="card-text">
+                <span *ngFor="let artistas of item.artists" class="badge badge-primary"> {{ artistas.name}} </span>
+            </p>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,48 @@
+
+
+<div [ngClass]="alerta"  class="alert" role="alert">
+    This is a success alert—check it out!
+  </div>
+  <br>
+
+<!-- nos cambia el color del alerta segun sean las caarcteristricas del boton -->
+
+  <button
+   type="button"
+   style="margin-right: 5px;"
+   class="btn btn-info" 
+   (click)="alerta = 'alert-info'">
+   info
+  </button>
+
+  <button
+  type="button"
+  class="btn btn-success" 
+  (click)="alerta = 'alert-success'">
+  success
+ </button>
+ <br>
+
+ <h3 [ngClass]="{ 'text-danger': false }" >
+     hola mundo
+ </h3>
+
+ <br>
+ <br>
+ <h3>proceso asincrono</h3>
+<!-- refresh hace que aparesca el icono de refrescar y para que jire se le agrega fa-spin -->
+ <button
+ (click)="ejecutar()"
+    class="btn btn-primary"
+    type="button"
+    name="button"
+    [disabled]="loading">
+    <!-- disabled desabilita el boton mientras dicha funcion se cumple -->
+    <!-- fa-save': !loading ( agrega una clase cuando loading es falso)...
+    y cuando es verdadero se agrega la siguiente -->
+    <i [ngClass]="{'fa-save': !loading, 'fa-refresh fa-spin': loading}" 
+     class="fa "></i> 
+     <span *ngIf="!loading" >guardar cambios</span>
+     <span *ngIf="loading" > espere por favor</span>
+ </button>
+ <br>

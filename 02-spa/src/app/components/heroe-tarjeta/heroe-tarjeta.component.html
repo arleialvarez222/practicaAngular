@@ -1,0 +1,16 @@
+<div class="card animated fadeIn fast">
+    <!-- {{heroes.img}} con las llaves dobles se utiliza la interpolacion -->
+    <!-- [src]  con los corchetes se le esta diciendo que lo va a manejar angular -->
+    <img class="card-img-top" [src]="heroes.img" [alt]="heroes.nombre">
+    <div class="card-body">
+        <h5 class="card-title">{{heroes.nombre}}</h5>
+        <p class="card-text">{{heroes.bio}}</p>
+        <p class="card-text"><small class="text-muted">{{heroes.aparicion}}</small></p>
+
+        <button (click)="verHeroe()" type="button" class="btn btn-outline-primary btn-block">Ver mas... 
+        </button>
+
+        <!-- <a [routerLink]="['/heroe', i]" class="btn btn-outline-primary">Ve rmas link...</a> -->
+
+    </div>
+</div>

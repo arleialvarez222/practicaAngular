@@ -1,0 +1,179 @@
+<h1 class="mt-3"> Pipes <small>Angular</small></h1>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <table class="table">
+            <thead class="thead-dark">
+                <!-- se le da color al head de la tabla -->
+                <tr>
+                    <th> Variable </th>
+                    <th> Pipe </th>
+                    <th> Salida </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <!-- convierte todas las letras en un solo formato -->
+                    <td> {{ nombre2 }} </td>
+                    <td> capitalizado </td>
+                    <td> {{nombre2 | capitalizado}} </td>
+                </tr>
+                <tr>
+                    <td> {{ nombre }} </td>
+                    <td> uppercase </td>
+                    <td> {{nombre | uppercase }} </td>
+                </tr>
+                <tr>
+                    <td> {{ nombre }} </td>
+                    <td> lowercase </td>
+                    <td> {{ nombre | lowercase }} </td>
+                </tr>
+                <tr>
+                    <td> {{ nombre }} </td>
+                    <td> slice:3 </td>
+                    <td> {{ nombre | slice:4 }} </td>
+                </tr>
+                <tr>
+                    <td> {{ nombre }} </td>
+                    <td> slice:0:4 </td>
+                    <td> {{ nombre | slice:0:4 }} </td>
+                </tr>
+                <tr>
+                    <td> {{ arreglo }} </td>
+                    <td> slice:3 </td>
+                    <td> {{ arreglo | slice:3 }} </td>
+                </tr>
+                <tr>
+                    <td> {{ arreglo }} </td>
+                    <td> slice:4:9 </td>
+                    <td> {{ arreglo | slice:4:9 }} </td>
+                </tr>
+
+                <tr>
+                    <!-- muestra el numero completo -->
+                    <td> {{ PI }} </td>
+                    <td> number </td>
+                    <td> {{ PI | number }} </td>
+                </tr>
+                <tr>
+                    <!-- muestra solo el entero -->
+                    <td> {{ PI }} </td>
+                    <td> number:'1.0-0' </td>
+                    <td> {{ PI | number:'1.0-0' }} </td>
+                </tr>
+                <tr>
+                    <!-- muestra el entero y dos decimales-->
+                    <td> {{ PI }} </td>
+                    <td> number:'.0-0' </td>
+                    <td> {{ PI | number:'.0-2' }} </td>
+                </tr>
+
+                <tr>
+                    <!-- redondea segun el ultimo numero -->
+                    <td> {{ porcentaje }} </td>
+                    <td> percent </td>
+                    <td> {{ porcentaje | percent }} </td>
+                </tr>
+                <tr>
+                    <!-- se optienen 2 enteros y 2 decimales -->
+                    <td> {{ porcentaje }} </td>
+                    <td> percent:'2.2-2' </td>
+                    <td> {{ porcentaje | percent:'2.2-2' }} </td>
+                </tr>
+
+                <tr>
+                    <!-- se optienen 2 enteros y 2 decimales -->
+                    <td> {{ salario }} </td>
+                    <td> currency </td>
+                    <td> {{ salario | currency }} </td>
+                </tr>
+                <tr>
+                    <!-- de esta forma se se le agrega la momeda (el tipo de moneda)  -->
+                    <td> {{ salario }} </td>
+                    <td> currency:'EUR' </td>
+                    <td> {{ salario | currency:'EUR' }} </td>
+                </tr>
+                <tr>
+                    <!-- de esta forma se se le agrega la momeda (el tipo de moneda)  -->
+                    <td> {{ salario }} </td>
+                    <td> currency:'CAD':'Symbol':'.0-0' </td>
+                    <td> {{ salario | currency:'CAD':'symbol-narrow':'.0-0' }} </td>
+                </tr>
+
+                <tr>
+                    <!-- no resive  ningun argumentpo pero si una expresion -->
+                    <td> {{ valorPromesa }} </td>
+                    <td> async </td>
+                    <td> {{ valorPromesa | async }} </td>
+                </tr>
+
+                <tr>
+                    <!-- nos devuelve la fecha y hotra actual -->
+                    <td> {{ fecha }} </td>
+                    <td> Date </td>
+                    <td> {{ fecha }} </td>
+                </tr>
+                <tr>
+                    <!-- nos devuelve la fecha y hotra actual sin nada mas -->
+                    <td> {{ fecha }} </td>
+                    <td> date:'medium' </td>
+                    <td> {{ fecha | date:'medium'}} </td>
+                </tr>
+                <tr>
+                    <!-- nos devuelve la fecha y hotra actual mas corta -->
+                    <td> {{ fecha }} </td>
+                    <td> date:'short' </td>
+                    <td> {{ fecha | date:'short' }} </td>
+                </tr>
+                <tr>
+                    <!-- nos devuelve la fecha y hotra actual personalizada -->
+                    <td> {{ fecha }} </td>
+                    <td> date:'MMMM - dd' </td>
+                    <td> {{ fecha | date:'MMMM - dd' }} </td>
+                </tr>
+
+
+
+                <tr>
+                    <!-- (click)="activar = !activar" nos devuelve la negacion de activar -->
+                    <!-- pasando el name contrasena y el metodo activar le damos la funcionalidad al boton -->
+                    <td> {{ nombre }} </td>
+                    <td>
+                        contrasena: {{activar}}
+                        <br>
+                        <button (click)="activar = !activar" class="btn btn-outline-primary">
+                             activar/desactivar
+                         </button>
+                    </td>
+                    <td> {{ nombre | contrasena:activar }} </td>
+
+                </tr>
+
+            </tbody>
+        </table>
+
+        <h4>Slice</h4>
+        <ul>
+            <li *ngFor="let item of arreglo | slice:5:20">{{ item }}</li>
+        </ul>
+
+        <h3>JSON</h3>
+        <hr>
+        <div class="row mb-5">
+            <pre>
+            {{ heroe | json }}
+           </pre>
+        </div>
+    </div>
+</div>
+
+
+<h3 class="mt-4">Donseguro</h3>
+<hr>
+
+<div class="row md-5">
+    <div class="col">
+        <iframe width="560" height="315" [src]="videoUrl | donseguro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div>
